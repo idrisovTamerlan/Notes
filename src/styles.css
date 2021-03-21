@@ -1,0 +1,50 @@
+.App{width: 450px;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;}
+
+.form{display: flex;
+}
+
+.form input {flex: 1; border-radius: 5px;}
+
+.form button {background-color: #634bf5;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border: none;
+            margin-left: 10px;
+            border-radius: 5px;}
+
+.header{text-align: center;
+        font-size: 22px;
+        margin-bottom: 30px;
+        border-bottom: 0.5px solid grey;
+        padding: 15px;}
+
+
+
+.todo{display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+    padding: 15px;
+    align-items: center;
+    }
+
+.text{flex: 1; }
+
+.favorite{padding: 0 15px;}
+
+.delete button{color: red;
+        padding-right: 10px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;}
+
+.selected{background-color: #fff6d6;
+
+
+}
+
+.selected .favorite span{color: orange;
+}
