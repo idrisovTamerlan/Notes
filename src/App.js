@@ -1,6 +1,9 @@
 import './styles.css';
+import {useState} from 'react';
+
 function App() {
-    const todos = [
+
+    const [todos, setTodos]=useState([
         {text: "Найти камень души",
             favorite: false },
 
@@ -9,55 +12,49 @@ function App() {
 
         {text: "Щелкнуть",
             favorite: true }
-        ];
+    ]);
 
-    const NewTodos = todos.map((todo) =>{
+    const deleteTodo= (deleteIndex) =>{
+        const filtered= todos.filter((todo,index) =>{
+          if (index === deleteIndex ){
+            return false; }
+            return true;
+         });
+         setTodos(filtered); }
 
-        let todoClass = `todo ${todo.favorite ? 'selected' : ''}`
+         const NewTodos = todos.map((todo,index) =>{
 
-        const deleteTodo = () => {
-            alert(" Какой ценой?")
-        }
+         const makeFavorite = (todo, index ) => {
+            setTodos(
+
+            )
+         }
 
 
-
-return(
-     <div className={todoClass}>
+             return(
+        <div className={`todo ${todo.favorite ? 'selected' : ''}`}>
              <div className='favorite'>
-                    <span> ★ </span>
+                    <button onClick={() =>{makeFavorite(index)}}> ★ </button>
              </div>
 
-            <div className='text'>
-               {todo.text}
-            </div>
+            <div className='text'>  {todo.text}  </div>
 
             <div className='delete'>
-                     <button onClick={deleteTodo}>
-                         ✖
-                     </button>
+                     <button onClick={() =>{deleteTodo(index)}}>    ✖   </button>
             </div>
 
-        </div>)
-    })
+        </div>) })
 
   return (
 
-    <div className="App">
-
-     <div className='header'>СПИСОК ДЕЛ</div>
-
+<div className="App">
+     <div className='header'>   СПИСОК ДЕЛ     </div>
      <div className='form'>
     <input placeholder="Введите текст..." type='text'/>
-        <button>
-            Добавить
-        </button>
+        <button> Добавить </button>
      </div>
 
-     <div className='todos'>
-         {NewTodos}
-     </div>
-
-
+     <div className='todos'> {NewTodos} </div>
 
     </div>
   );
